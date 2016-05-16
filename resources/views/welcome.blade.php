@@ -1,45 +1,45 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layout.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title')
+    Welcome!
+@endsection
 
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
+@section('content')
+    <div class="row">
+        <!-- SIGN UP -->
+        <div class="col-lg-6">
+            <h3>Sign Up</h3>
+            <form action="{{ route('signup') }}" method="post">
+                <div class="form-group">
+                    <label for="email">Your E-Mail:</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                    
+                    <label for="email">Your First Name:</label>
+                    <input type="text" name="first_name" id="first_name" class="form-control">
+                    
+                    <label for="email">Your Password:</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                    
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                </div>
+            </form>
         </div>
-    </body>
-</html>
+        <!-- SIGN IN -->
+        <div class="col-lg-6">
+            <h3>Sign In</h3>
+            <form action="{{ route('signin') }}" method="post">
+                <div class="form-group">
+                    <label for="email">Your E-Mail:</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                    
+                    <label for="email">Your Password:</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                    
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection
