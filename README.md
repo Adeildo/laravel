@@ -1,2 +1,2 @@
 # laravel
-brincando com laravela
+brincando com laravel
